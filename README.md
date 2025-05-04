@@ -1,6 +1,6 @@
 # airbnb-clone-project
 
-## Team Role
+## Team Roles
 ### 1. Backend Developer
 - **Description**: Focuses on server-side logic, APIs, and integration with databases/services.
 - **Responsibilities**:
