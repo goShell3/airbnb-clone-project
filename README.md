@@ -72,3 +72,39 @@ User ────┐
   ├─ Property ──── Booking ─── Payment
   │        │
   └── Review
+
+## Feature Breakdown
+
+### 1. **User Management**
+- Allows users to register, log in, and manage profiles (hosts/guests).  
+- Implements JWT authentication for secure access and role-based permissions (e.g., hosts can list properties).  
+
+### 2. **Property Management**
+- Enables hosts to create, update, and delete property listings with details (photos, pricing, amenities).  
+- Includes search/filter functionality (e.g., by location, price range) for guests.  
+
+### 3. **Booking System**
+- Handles reservation workflows: availability checks, date selection, and payment integration.  
+- Sends confirmation emails and updates booking status (confirmed/pending/cancelled).  
+
+### 4. **Reviews & Ratings**
+- Lets guests leave ratings and reviews for properties post-stay.  
+- Displays aggregate scores on property listings to build trust.  
+
+### 5. **Payment Processing**
+- Integrates with Stripe/PayPal for secure transactions.  
+- Calculates totals (including fees) and refunds cancellations per policy.  
+
+### 6. **Messaging System**
+- Facilitates communication between guests and hosts via real-time chat.  
+- Notifies users of new messages via email or in-app alerts.  
+
+### 7. **Admin Dashboard**
+- Provides moderators with tools to manage users, properties, and resolve disputes.  
+- Generates reports (e.g., revenue, popular locations) for business insights.  
+
+---
+
+### Upcoming Features (Optional)
+- **Wishlists**: Save favorite properties for future bookings.  
+- **Smart Pricing**: AI-driven price suggestions for hosts.  
