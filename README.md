@@ -7,4 +7,3 @@
   - Develops and maintains the core application logic.
   - Implements security and data protection measures.
   - Optimizes performance and scalability.
-
