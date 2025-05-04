@@ -151,4 +151,38 @@ To protect sensitive data and ensure system integrity, the following security me
 ### Security Tools Used
 - **Django-allauth**: OAuth2 integration for social logins.  
 - **django-cors-headers**: Manages CORS policies.  
-- **Helmet.js** (if using Node.js middleware): Sets secure HTTP headers.  
+- **Helmet.js** (if using Node.js middleware): Sets secure HTTP headers.
+
+
+## CI/CD Pipeline
+
+### What is CI/CD?
+**Continuous Integration (CI)** and **Continuous Deployment (CD)** automate the process of testing, building, and deploying code changes. This ensures faster, more reliable software delivery.
+
+### Why It Matters for This Project
+- **Quality Control**: Automated tests catch bugs early before they reach production.  
+- **Rapid Iteration**: Enables frequent, small updates instead of risky bulk releases.  
+- **Consistency**: Eliminates "it works on my machine" issues via containerized environments.  
+
+### Tools & Workflow
+1. **GitHub Actions**:  
+   - Runs automated tests (unit/integration) on every `git push`.  
+   - Builds Docker images and deploys to staging on merge to `main`.  
+
+2. **Docker**:  
+   - Containerizes the app for identical environments (dev → prod).  
+   - Simplifies scaling and dependency management.  
+
+3. **AWS/GCP (Optional)**:  
+   - Auto-deploys to cloud servers after successful CI checks.  
+
+4. **Monitoring (Post-Deployment)**:  
+   - Tools like Sentry or New Relic track errors in production.  
+
+---
+
+### Example Pipeline Stages
+```yaml
+1. Code Push → 2. Run Tests → 3. Build Docker Image → 4. Deploy to Staging → 5. Manual Approval → 6. Production Rollout
+```
+
