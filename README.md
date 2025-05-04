@@ -72,7 +72,7 @@ User ────┐
   ├─ Property ──── Booking ─── Payment
   │        │
   └── Review
-
+```
 ## Feature Breakdown
 
 ### 1. **User Management**
@@ -108,3 +108,47 @@ User ────┐
 ### Upcoming Features (Optional)
 - **Wishlists**: Save favorite properties for future bookings.  
 - **Smart Pricing**: AI-driven price suggestions for hosts.  
+
+## API Security
+
+To protect sensitive data and ensure system integrity, the following security measures will be implemented:
+
+### 1. **Authentication**
+- **JWT (JSON Web Tokens)** for stateless user sessions.  
+- **Password hashing** (bcrypt) to securely store credentials.  
+- **Why?** Prevents unauthorized access to user accounts and personal data (e.g., payment details, bookings).
+
+### 2. **Authorization**
+- **Role-based access control (RBAC)** to restrict actions (e.g., only hosts can edit properties).  
+- **Resource ownership checks** (e.g., users can only delete their own reviews).  
+- **Why?** Ensures users only interact with data they’re permitted to, minimizing misuse.
+
+### 3. **Rate Limiting**
+- **Throttling** (e.g., 100 requests/minute per IP) using Django Ratelimit.  
+- **Why?** Prevents brute-force attacks and API abuse (e.g., spamming bookings/reviews).
+
+### 4. **Data Protection**
+- **HTTPS/TLS** for encrypted data in transit.  
+- **SQL injection prevention** via Django ORM parameterized queries.  
+- **Why?** Safeguards sensitive information (e.g., credit card numbers, user emails).
+
+### 5. **Payment Security**
+- **PCI-DSS compliance** by using Stripe/PayPal (no direct card storage).  
+- **Webhook validation** to verify payment events.  
+- **Why?** Reduces fraud risk and ensures financial transactions are irreversible.
+
+### 6. **CORS & CSRF Protection**
+- **Strict CORS policies** to limit API access to trusted domains.  
+- **CSRF tokens** for state-changing operations (e.g., form submissions).  
+- **Why?** Blocks malicious cross-origin requests (e.g., phishing attacks).
+
+### 7. **Monitoring & Logging**
+- **Audit logs** for sensitive actions (e.g., login attempts, payment changes).  
+- **Why?** Enables breach detection and forensic analysis.
+
+---
+
+### Security Tools Used
+- **Django-allauth**: OAuth2 integration for social logins.  
+- **django-cors-headers**: Manages CORS policies.  
+- **Helmet.js** (if using Node.js middleware): Sets secure HTTP headers.  
